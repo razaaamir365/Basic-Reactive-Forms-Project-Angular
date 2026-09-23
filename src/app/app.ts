@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { ReactiveForm } from './reactive-form/reactive-form';
+import { GroupForms } from './group-forms/group-forms';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveForm],
+  imports: [GroupForms],
+  // imports: [ReactiveForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

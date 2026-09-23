@@ -1,0 +1,31 @@
+<h1>Grouping Reactive Forms</h1>
+
+<ul>
+    <li>First Name : {{loginForm.value.firstName}}</li>
+    <li>Last Name : {{loginForm.value.lastName}}</li>
+    <li>Email Id : {{loginForm.value.email}}</li>
+    <li>Password : {{loginForm.value.password}}</li>
+</ul>
+
+<form [formGroup]="loginForm" (ngSubmit)="handleProfile()" method="post">
+<li><h3>Login Details</h3></li>
+<ul>
+<li>First Name : 
+<input type="text" formControlName="firstName" placeholder="First Name" />
+</li>
+<br><li>Last Name : 
+<input type="text" formControlName="lastName" placeholder="Last Name" />
+</li>
+<br>
+<li>Enter Email : 
+<input type="text" formControlName="email" placeholder="Enter Email"/>
+</li>
+<br>
+<li>Enter Password : 
+<input type="password" formControlName="password" placeholder="Enter Password"/>
+</li>
+</ul>
+
+<button>Submit</button>
+<button (click)="reset()">Reset</button>
+</form>
