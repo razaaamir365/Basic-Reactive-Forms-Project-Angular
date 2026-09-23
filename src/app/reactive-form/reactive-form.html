@@ -1,0 +1,28 @@
+<h1>Reactive Form</h1>
+
+<ul>
+    <li>Email : {{email.value}}</li>
+    <li>Password : {{password.value}}</li>
+</ul>
+
+<li><h3>Login Details</h3></li>
+<ul>
+<li>First Name : 
+<input type="text" placeholder="First Name" [formControl]="firstName"/>
+</li>
+<br><li>Last Name : 
+<input type="text" placeholder="Last Name" [formControl]="lastName"/>
+</li>
+<br>
+<li>Enter Email : 
+<input type="text" placeholder="eEnter Email" [formControl]="email"/>
+</li>
+<br>
+<li>Enter Password : 
+<input type="password" placeholder="Enter Password" [formControl]="password">
+</li>
+<br><br>
+</ul>
+<button (click)="login()">Login</button>
+<button (click)="reset()">Reset</button>
+<button (click)="student()">Login</button>
