@@ -1,0 +1,30 @@
+<h1>Signal Forms</h1>
+
+<ul><h3>Show Email & Password</h3>
+    <li><h4>Email : {{loginModel().email}}</h4></li>
+    <li><h4>Password : {{loginModel().password}}</h4></li>
+</ul>
+
+<ul>
+    <h3>User Details</h3>
+<li>
+<h4>User Name</h4>
+<input type="text" 
+placeholder="Enter your email"
+[formField]="loginForm.email"/>
+</li>
+
+<li>
+    <h4>User Password</h4>
+<input type="password" 
+placeholder="Enter your password"
+[formField]="loginForm.password"/>
+</li>
+</ul>
+
+<div class="btns-box">
+    <button (click)="submitForms()">Submit</button>
+    <button (click)="resetForms()">Reset</button>
+</div>
+
+
