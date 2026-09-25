@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { form, FormField } from '@angular/forms/signals';
+import { email, form, FormField, maxLength, minLength, required } from '@angular/forms/signals';
 @Component({
   selector: 'app-signal-forms',
   imports: [FormField],
@@ -8,9 +8,20 @@ import { form, FormField } from '@angular/forms/signals';
   styleUrl: './signal-forms.css',
 })
 export class SignalForms {
-  loginModel = signal({email: 'aamir12@gmail.com' , password: 'codebyaamir12'})
+  loginModel = signal({email: '' , password: ''})
 
-  loginForm = form(this.loginModel);
+  loginForm = form(this.loginModel, (field)=>{
+    required(field.email,{message:"enter the user email"});
+    minLength(field.email,5,{message:"enter the valid email"});
+    email(field.email,{message:"please enter the valid email"});
+
+
+    required(field.password,{message:"enter the user password"});
+    minLength(field.password,5,{message:"enter the valid password"});
+    maxLength(field.password,20,{message:"enter the valid password"});
+   
+
+  });
 
   submitForms(){
     console.log(this.loginForm().value());
