@@ -1,31 +1,63 @@
 <h1>Grouping Reactive Forms</h1>
 
-<ul>
+<!-- <ul>
     <li>First Name : {{loginForm.value.firstName}}</li>
     <li>Last Name : {{loginForm.value.lastName}}</li>
     <li>Email Id : {{loginForm.value.email}}</li>
     <li>Password : {{loginForm.value.password}}</li>
-</ul>
+</ul> -->
 
 <form [formGroup]="loginForm" (ngSubmit)="handleProfile()" method="post">
 <li><h3>Login Details</h3></li>
 <ul>
 <li>First Name : 
 <input type="text" formControlName="firstName" placeholder="First Name" />
+@if (firstName?.hasError('required') && firstName?.touched) {
+    <span class="error">This input field is required</span>
+}
+@if (firstName?.errors?.['minlength'] && firstName?.touched) {
+    <span class="error">This input is minimum length 2 required</span>
+}
+@if (firstName?.errors?.['maxlength'] && firstName?.touched) {
+    <span class="error">This input length is maximum not valid</span>
+}
 </li>
+
 <br><li>Last Name : 
 <input type="text" formControlName="lastName" placeholder="Last Name" />
+@if (lastName?.hasError('required') && lastName?.touched) {
+    <span class="error">This input field is required</span>
+}
+@if (lastName?.errors?.['minlength'] && lastName?.touched) {
+    <span class="error">This input is minimum length 2 required</span>
+}
+@if (lastName?.errors?.['maxlength'] && lastName?.touched) {
+    <span class="error">This input length is maximum not valid</span>
+}
 </li>
 <br>
 <li>Enter Email : 
 <input type="text" formControlName="email" placeholder="Enter Email"/>
+@if (email?.hasError('required') && email?.touched) {
+    <span class="error">This email field is required</span>
+}
+@if (email?.errors?.['email'] && email?.touched) {
+    <span class="error">This email is not valid</span>
+}
 </li>
 <br>
 <li>Enter Password : 
 <input type="password" formControlName="password" placeholder="Enter Password"/>
+@if (password?.hasError('required') && password?.touched) {
+    <span class="error">password field is required</span>
+}
+@if (password?.errors?.['minlength'] && password?.touched) {
+    <span class="error">This password is not valid</span>
+}
 </li>
 </ul>
-
-<button>Submit</button>
+<div class="btns">
+<button [disabled]="loginForm.invalid">Submit</button>
 <button (click)="reset()">Reset</button>
+</div>
 </form>
