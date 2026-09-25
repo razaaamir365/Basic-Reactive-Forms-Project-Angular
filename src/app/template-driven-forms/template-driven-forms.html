@@ -1,0 +1,54 @@
+<h1>Template Driven Forms</h1>
+
+<ul>
+    <h2>User Output Details </h2>
+    <li>User Name. : {{userDetails.userName}}</li>    
+    <li>City. : {{userDetails.city}}</li>
+    <li>Gender. : {{userDetails.gender}}</li>
+    <li>UserBio. : {{userDetails.userBio}}</li>
+    <li>Range. : {{userDetails.range}}</li>
+</ul>
+
+<form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+    <ul>
+        <h2>User Input Details</h2>
+        <li>
+            <label for="">User Name : </label>
+            <input type="text" name="userName" placeholder="enter your email" ngModel>
+        </li>
+        <br>
+        <li>
+            <label for="">User Password : </label>
+            <input type="password" name="password" placeholder="enter your password" ngModel>
+        </li>
+        <br>
+        <li>
+            <label for="city">City Name : </label>
+            <select name="city" id="" ngModel >
+                <option value="select_city">Select City</option>
+                <option value="faridabad">Faridabad</option>
+                <option value="gurgaon">Gurgaon</option>
+                <option value="new_delhi">New Delhi</option>
+            </select>
+        </li>
+        <br>
+
+        <li>
+            <label>Gender</label>
+            <div name="gender" id="">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" value="male" ngModel/>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" value="female" ngModel/>
+            </div>
+        </li>
+        <br>
+        <li>
+            <input type="range" name="range" ngModel/>
+        </li>
+    </ul>
+
+    <textarea name="userBio" id="" ngModel></textarea>
+    <br>
+    <button type="submit">Add User</button>
+</form>
